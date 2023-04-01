@@ -11,8 +11,7 @@ final class ViewController: UIViewController {
 
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +56,15 @@ final class ViewController: UIViewController {
         
     }
     
+    @IBAction private func usernameHintTapped() {
+        showAlert(withTitle: "Oops", andMessage: "Your User Name is 'name'")
+    }
+    
+    @IBAction private func passwordHintTapped(_ sender: Any) {
+        showAlert(withTitle: "Oops", andMessage: "Your Password is '1111'")
+    }
+    
+    
     private func showAlert(withTitle title: String, andMessage message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
@@ -66,6 +74,7 @@ final class ViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+
     
 
     
