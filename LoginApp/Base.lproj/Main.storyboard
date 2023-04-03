@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="102" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="Jf9-xk-6yY">
             <objects>
-                <viewController id="q8W-SR-eCI" sceneMemberID="viewController">
+                <viewController id="q8W-SR-eCI" customClass="WelcomeViewController" customModule="LoginApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gl5-CG-QAY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,24 +104,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gzy-WH-Czs">
-                                <rect key="frame" x="124" y="399.5" width="72" height="26.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qwy-ZR-ghK">
+                                <rect key="frame" x="112" y="385" width="96" height="41"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log out">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logoutButtonTapped:" destination="q8W-SR-eCI" eventType="touchUpInside" id="Fa8-YY-Iin"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bMC-x6-g4h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mvh-Qb-jZs" firstAttribute="top" secondItem="bMC-x6-g4h" secondAttribute="top" constant="130" id="8co-f7-CPe"/>
-                            <constraint firstItem="bMC-x6-g4h" firstAttribute="bottom" secondItem="gzy-WH-Czs" secondAttribute="bottom" multiplier="4:3" id="B1O-hQ-wUj"/>
                             <constraint firstItem="3Bh-VH-e0p" firstAttribute="centerX" secondItem="Gl5-CG-QAY" secondAttribute="centerX" id="FBP-ze-uVw"/>
                             <constraint firstItem="mvh-Qb-jZs" firstAttribute="centerX" secondItem="Gl5-CG-QAY" secondAttribute="centerX" id="HW4-6a-DYz"/>
+                            <constraint firstItem="Qwy-ZR-ghK" firstAttribute="centerX" secondItem="Gl5-CG-QAY" secondAttribute="centerX" id="JLM-nD-iIk"/>
                             <constraint firstItem="3Bh-VH-e0p" firstAttribute="top" secondItem="mvh-Qb-jZs" secondAttribute="bottom" constant="40" id="aYe-dx-fRs"/>
-                            <constraint firstItem="gzy-WH-Czs" firstAttribute="centerX" secondItem="Gl5-CG-QAY" secondAttribute="centerX" id="fIy-f9-n6x"/>
+                            <constraint firstItem="bMC-x6-g4h" firstAttribute="bottom" secondItem="Qwy-ZR-ghK" secondAttribute="bottom" multiplier="4:3" id="fhS-7H-fZT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greetingsLabel" destination="mvh-Qb-jZs" id="SgT-pC-r0M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zto-Xk-Ycg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

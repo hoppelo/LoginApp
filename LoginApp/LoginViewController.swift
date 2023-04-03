@@ -7,16 +7,15 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class LoginViewController: UIViewController {
 
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
-
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
+        welcomeVC.greetings = "Welcome, \(username.text ?? "")!"
     }
-    
     
     
     @IBAction func loginButtonTapped() {
@@ -53,15 +52,14 @@ final class ViewController: UIViewController {
             print(showAlert(withTitle: "Invalid login or password.", andMessage: "Please, enter correct login and password."))
             return
         }
-        
     }
     
     @IBAction private func usernameHintTapped() {
-        showAlert(withTitle: "Oops", andMessage: "Your User Name is 'name'")
+        showAlert(withTitle: "Oops", andMessage: "Your Username is name 😉")
     }
     
     @IBAction private func passwordHintTapped(_ sender: Any) {
-        showAlert(withTitle: "Oops", andMessage: "Your Password is '1111'")
+        showAlert(withTitle: "Oops", andMessage: "Your Password is 1111 😉")
     }
     
     
